@@ -5,7 +5,7 @@
 function MyViewModel() {
     this.firstName = ko.observable("Donald");
     this.lastName = ko.observable("Trump");
-    this.fullText = ko.computed(function() {//computed property - wykorzystuje
+    this.fullText = ko.computed(function() {//computed property - wykorzystuje aktualną wartość zmiennych(first name i last name, transformacja w jedna strone(jej zmiania nie wplywa na firstname i lastname))
         return "Hello, " + this.firstName() + " " + this.lastName();
     }, this);
 }
