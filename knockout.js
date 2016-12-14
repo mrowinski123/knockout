@@ -1,25 +1,70 @@
 /**
  * Created by mrowinski on 14.12.2016.
  */
-
+var data={}; //container for objects
+var temp;
+var record="";
+var viewModel;
 function MyViewModel() {
-    this.firstName = ko.observable("Donald");
-    this.lastName = ko.observable("Trump");
-    this.fullText = ko.computed(function() {//computed property - wykorzystuje aktualną wartość zmiennych(first name i last name, transformacja w jedna strone(jej zmiania nie wplywa na firstname i lastname))
-        return "Hello, " + this.firstName() + " " + this.lastName();
-    }, this);
+    this.size = ko.observable("3");
+    temp = this.size();
+    this.fullText = ko.computed(function() {
+        if (this.size != 0) {
+            console.log(temp);
+           /* for (var i = 0; i < temp; i++) {
+                data['Person ' + i] = {
+                    'id': i,
+                    'name': "JohnDoe"
+                };
+
+            }
+            for (var i in data) {
+                var subObj = data[i];
+                var buffor = [];
+                record += "ID: " + subObj['id'] + " | ";
+                record += "Name: " + subObj['name']+" || ";
+                buffor.push(record);
+            }
+        }
+        else
+            alert("dupa");
+        return record;**/
+        return FillArray();
+        }
+    }, MyViewModel);
+};
+
+
+function FillArray(){
+    for (var i = 0; i < temp; i++) {
+        data['Person ' + i]={
+            'id': i,
+            'name': "JohnDoe"
+        };
+
+    }
+    var buffor = [];
+    for (var i in data) {
+        var subObj = data[i];
+        record += "ID: " + subObj['id'] + " | ";
+        record += "Name: " + subObj['name']+" || ";
+        buffor.push(record);
+        record="";
+    }
+ $("#new").append(buffor);
+    return buffor;
 }
+
 function knockoutLoad()
 {
-    ko.applyBindings(new MyViewModel());//function to activate knockout
-}
+    viewModel = new MyViewModel();
+    ko.applyBindings(viewModel);//function to activate knockout
+};
 
 
-
-
-
-
-
+$(document).ready(function(){
+    $("#button").click(FillArray());
+});
 
 
 

@@ -1,15 +1,16 @@
 <html>
 <head>
-    <script src='knockout-3.3.0.js'></script>
-    <script src="knockout.js"></script>
+    <script language="JavaScript" type="text/javascript" src='knockout-3.3.0.js'></script>
+    <script language="JavaScript" type="text/javascript" src="jquery-3.1.1.js"></script>
+    <script language="JavaScript" type="text/javascript" src="knockout.js"></script>
 </head>
-<body onLoad="knockoutLoad()"><!-- execute function immediately after the page has been load -->
-<p>First name: <input data-bind="value: firstName" /></p>
-<p>Last name: <input data-bind="value: lastName" /></p>
-
-<p>First name: <strong data-bind="text: firstName"></strong></p>
-<p>Last name: <strong data-bind="text: lastName"></strong></p>
+<body onLoad="knockoutLoad()" ><!-- execute function immediately after the page has been load -->
+<p>Size: <input data-bind="value: size" /></p>
+<p>Size: <strong data-bind="text: size"></strong></p>
 <p>Full text: <strong data-bind="text: fullText"></strong></p>
-
+<p id="new"></p>
+    <div class = "Refresh">
+    <input type="button" id="button" value="Refresh">
+</div>
 </body>
 </html>
