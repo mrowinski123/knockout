@@ -10,8 +10,7 @@
 <div class='liveExample'>
     <form data-bind="submit: addPersons">
         New item:
-        <input data-bind='value: personsToAdd, valueUpdate: "afterkeydown"' />
-        <button type="submit" data-bind="enable: personsToAdd().length >= 0">Add</button>
+        <input data-bind='value: personsToAdd'/>
         <h3>Your persons:</h3>
         <ol data-bind="foreach: persons">
             <p><b> ID:   </b><a data-bind="text: id"></a></p>
