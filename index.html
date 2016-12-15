@@ -1,16 +1,21 @@
 <html>
 <head>
+
+    <script src="jquery-3.1.1.js"></script>
     <script language="JavaScript" type="text/javascript" src='knockout-3.3.0.js'></script>
+    <script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js'></script>
+
 </head>
+
 <div class='liveExample'>
     <form data-bind="submit: addPersons">
         New item:
         <input data-bind='value: personsToAdd, valueUpdate: "afterkeydown"' />
         <button type="submit" data-bind="enable: personsToAdd().length >= 0">Add</button>
-        <p>Your persons:</p>
+        <h3>Your persons:</h3>
         <ol data-bind="foreach: persons">
-            ID: <p data-bind="text: id"></p>
-            NAME: <p data-bind="text: name"></p>
+            <p><b> ID:   </b><a data-bind="text: id"></a></p>
+            <p><b> NAME: </b><a data-bind="text: name"></a></p>
         </ol>
     </form>
 </div>
